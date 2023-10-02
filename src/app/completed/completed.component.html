@@ -1,37 +1,36 @@
-<div  class="container">
-
-    <div class="left">
-        <div class="card_front">
-            <img src="../../assets/images/bg-card-front.png" alt="card_front" class="card_background">
-            <div class="overlay">
-
-            <img src="../../assets/images/card-logo.svg" alt="card_logo" class="card_logo">
-            <p class="card_number">{{ cardNumber | cardNumberFormat }}</p>
-            <p class="card_holder">{{ cardholder }}</p>
-            <p class="expiry_date">{{ MM }}/{{ YY }}</p>
-                </div>
-        </div>
-
-        <div class="card_back">
-            <img src="../../assets/images/bg-card-back.png" alt="">
-            <div class="overlay">
-                <p class="cvc_card">{{cvc}}</p>
-            </div>
-        </div>
-
-  </div>
-<div class="right">
-   <form class="form"> 
-    
-  
-    <img src="../../assets/images/icon-complete.svg" alt="">
-    <div class="thank_you">
-        THANK YOU!
+<div class="container">
+  <div class="left">
+    <div class="card_front">
+      <img
+        src="../../assets/images/bg-card-front.png"
+        alt="card_front"
+        class="card_background"
+      />
+      <div class="overlay">
+        <img
+          src="../../assets/images/card-logo.svg"
+          alt="card_logo"
+          class="card_logo"
+        />
+        <p class="card_number">{{ cardNumber }}</p>
+        <p class="card_holder">{{ cardholder }}</p>
+        <p class="expiry_date">{{ MM }}/{{ YY }}</p>
+      </div>
     </div>
-    <p class="paragraph"> 
-        We've added your card details</p>
-    <button type="submit" >Continue</button>
-   </form>
-</div>
 
+    <div class="card_back">
+      <img src="../../assets/images/bg-card-back.png" alt="" />
+      <div class="overlay">
+        <p class="cvc_card">{{ cvc }}</p>
+      </div>
+    </div>
+  </div>
+  <div class="right">
+    <form class="form">
+      <img src="../../assets/images/icon-complete.svg" alt="" />
+      <div class="thank_you">THANK YOU!</div>
+      <p class="paragraph">We've added your card details</p>
+      <button type="submit">Continue</button>
+    </form>
+  </div>
 </div>

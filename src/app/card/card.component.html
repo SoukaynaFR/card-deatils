@@ -1,75 +1,135 @@
-<div  class="container">
-
-    <div class="left">
-        <div class="card_front">
-            <img src="../../assets/images/bg-card-front.png" alt="card_front" class="card_background">
-            <div class="overlay">
-
-            <img src="../../assets/images/card-logo.svg" alt="card_logo" class="card_logo">
-            <p class="card_number">0000 0000 0000 0000</p>
-            <p class="card_holder">Jane Appleseed</p>
-            <p class="expiry_date">00/00</p>
-                </div>
-        </div>
-
-        <div class="card_back">
-            <img src="../../assets/images/bg-card-back.png" alt="">
-            <div class="overlay">
-                <p class="cvc_card">000</p>
-            </div>
-        </div>
-
-  </div>
-<div class="right">
-   <form class="form"> 
-    <div class="input_container">
-
-
-     <label for="cardholder">CARDHOLDER NAME</label> 
-    <input class="cardholder" type="text" name="cardholder" placeholder="e.g. Jane Appleseed" [(ngModel)]="cardholder">
-    <div class="errorMessage" *ngIf="showCardholderError">{{cantBeBlank}}</div>
-  </div>
-<div class="input_container">
-    <label for="cardNumber">CARD NUMBER</label> 
-    <input class="cardNumber" type="text" name="cardNumber" placeholder="e.g. 1234 5678 9123 0000" [(ngModel)]="cardNumber">
-    <div class="errorMessage" *ngIf="showCardNumberError">{{cantBeBlank}}</div>
-    <div class="errorMessage" *ngIf="showCardNumberInvalidFormatError">Wrong Format,numbers only!</div>
-
-
-  </div>
-  <div class="Ex_Date_Group">
-    <div class="input_container">
-      <label for="MM_YY">EXP. DATE (MM/YY)</label>
-      <div class="MM_YY">
-        <input class="MM" type="text" id="MM" name="MM" placeholder="MM" [(ngModel)]="MM">
-        <div class="errorMessage" *ngIf="showMMError">{{cantBeBlank}}</div>
-        <div class="errorMessage" *ngIf="showMMInvalidFormatError">Wrong format ! </div>
-        <input class="YY" type="text" id="YY" name="YY" placeholder="YY" [(ngModel)]="YY">
-        <div class="errorMessage" *ngIf="showYYError">{{cantBeBlank}}</div>
-        <div class="errorMessage" *ngIf="showYYInvalidFormatError">Wrong format !</div>
-
-
+<div class="container">
+  <div class="left">
+    <div class="card_front">
+      <img
+        src="../../assets/images/bg-card-front.png"
+        alt="card_front"
+        class="card_background"
+      />
+      <div class="overlay">
+        <img
+          src="../../assets/images/card-logo.svg"
+          alt="card_logo"
+          class="card_logo"
+        />
+        <p class="card_number">0000 0000 0000 0000</p>
+        <p class="card_holder">Jane Appleseed</p>
+        <p class="expiry_date">00/00</p>
       </div>
     </div>
-  
-    <div class="input_container">
-      <label for="cvc">CVC</label>
-      <input class="cvc" type="text" name="cvc" placeholder="e.g. 123" [(ngModel)]="cvc">
-      <div class="errorMessage" *ngIf="showCvcError">{{cantBeBlank}}</div>
-      <div class="errorMessage" *ngIf="showCvcInvalidFormatError">Must be 3 digits ! </div>
 
-
+    <div class="card_back">
+      <img src="../../assets/images/bg-card-back.png" alt="" />
+      <div class="overlay">
+        <p class="cvc_card">000</p>
+      </div>
     </div>
   </div>
-  
-    
-    <button type="submit" (click)="onSubmit()">Confirm</button>
-  
-    
-  
-    
+  <div class="right">
+    <form class="form" (ngSubmit)="onSubmit()" #cardForm="ngForm">
+      <div class="input_container">
+        <label for="cardholder">CARDHOLDER NAME</label>
+        <input
+          class="cardholder"
+          type="text"
+          id="cardholder"
+          name="cardholder"
+          placeholder="e.g. Jane Appleseed"
+          [(ngModel)]="cardholder"
+          required
+          [class.error-input]="showCardholderError && !cardholder"
+        />
+        <div class="errorMessage" *ngIf="showCardholderError">
+          {{ cantBeBlank }}
+        </div>
+      </div>
+      <div class="input_container">
+        <label for="cardNumber">CARD NUMBER</label>
+        <input
+          class="cardNumber"
+          type="text"
+          id="cardNumber"
+          name="cardNumber"
+          placeholder="e.g. 1234 5678 9123 0000"
+          [(ngModel)]="cardNumber"
+          [class.error-input]="
+            showCardNumberError || showCardNumberInvalidFormatError
+          "
+        />
+        <div class="errorMessage" *ngIf="showCardNumberError">
+          {{ cantBeBlank }}
+        </div>
+        <div
+          class="errorMessage"
+          *ngIf="showCardNumberInvalidFormatError && !showCardNumberError"
+        >
+          Wrong Format! Must be 16 digits
+        </div>
+      </div>
+      <div class="Ex_Date_Group">
+        <div class="input_container">
+          <label for="MM_YY">EXP. DATE (MM/YY)</label>
+          <div class="MM_YY">
+            <input
+              class="MM"
+              type="text"
+              id="MM"
+              name="MM"
+              placeholder="MM"
+              [(ngModel)]="MM"
+              [class.error-input]="showMMError || showMMInvalidFormatError"
+            />
+            <div class="errorMessage" *ngIf="showMMError">
+              {{ cantBeBlank }}
+            </div>
+            <div
+              class="errorMessage"
+              *ngIf="showMMInvalidFormatError && !showMMError"
+            >
+              Wrong format !
+            </div>
+            <input
+              class="YY"
+              type="text"
+              id="YY"
+              name="YY"
+              placeholder="YY"
+              [(ngModel)]="YY"
+              [class.error-input]="showMMError || showMMInvalidFormatError"
+            />
+            <div class="errorMessage" *ngIf="showMMError">
+              {{ cantBeBlank }}
+            </div>
+            <div
+              class="errorMessage"
+              *ngIf="showMMInvalidFormatError && !showMMError"
+            >
+              Wrong format !
+            </div>
+          </div>
+        </div>
 
-   </form>
-</div>
+        <div class="input_container">
+          <label for="cvc">CVC</label>
+          <input
+            class="cvc"
+            type="text"
+            name="cvc"
+            placeholder="e.g. 123"
+            [(ngModel)]="cvc"
+            [class.error-input]="showCvcError || showCvcInvalidFormatError"
+          />
+          <div class="errorMessage" *ngIf="showCvcError">{{ cantBeBlank }}</div>
+          <div
+            class="errorMessage"
+            *ngIf="showCvcInvalidFormatError && !showCvcError"
+          >
+            Must be 3 digits !
+          </div>
+        </div>
+      </div>
 
+      <button type="submit" (click)="onSubmit()">Confirm</button>
+    </form>
+  </div>
 </div>

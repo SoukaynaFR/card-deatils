@@ -1,20 +1,14 @@
 import { Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({
-  name: 'cardNumberFormat'
+  name: 'cardNumber'
 })
-export class CardNumberFormatPipe implements PipeTransform {
-  transform(value: any): string {
-    if (typeof value !== 'string' || !value) {
-      return value; // Return the input value if it's not a string or falsy
-    }
+export class CardNumberPipe implements PipeTransform {
+  transform(value: string): string {
+    // Remove any non-digit characters from the input value
+    const cleanedValue = value.replace(/\D/g, '');
 
-    // Remove any existing spaces from the value
-    const stringValue = value.toString().replace(/\s/g, '');
-
-    // Use regex to add a space every 4 digits
-    const formattedValue = stringValue.replace(/(\d{4})/g, '$1 ');
-
-    return formattedValue.trim(); // Remove leading/trailing spaces
+    // Use regex to add spaces every 4 characters
+    return cleanedValue.replace(/(.{4})/g, '$1 ');
   }
 }

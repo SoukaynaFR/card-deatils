@@ -8,14 +8,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CardComponent } from './card/card.component';
 import { CompletedComponent } from './completed/completed.component';
-import { CardNumberFormatPipe } from './card-number.pipe';
+import { CardNumberPipe } from './card-number.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     CardComponent,
     CompletedComponent,
-    CardNumberFormatPipe
+    CardNumberPipe
   ],
   imports: [
     BrowserModule,
