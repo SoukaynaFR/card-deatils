@@ -172,7 +172,6 @@ button {
 
 @media screen and (max-width: 768px) {
   .container {
-    display: flex;
     flex-direction: column;
     align-items: center;
     margin: 0;
@@ -228,78 +227,30 @@ button {
     height: auto;
   }
 
-  .card_background {
-    width: 100%;
-    height: 100%;
-  }
-
-  .overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-  }
-
   .card_logo {
-    height: auto;
-    margin-bottom: 10px;
-    position: absolute;
-    top: 4px;
-    left: 1px;
-    right: 80px;
     display: none;
   }
 
   .card_number {
     font-size: 16px;
-    color: white;
-    letter-spacing: 4px;
-    font-weight: 500;
-    padding: 2px;
-    position: absolute;
+
     top: 50%;
     left: 35%;
-    transform: translate(-50%, -50%);
-    white-space: nowrap;
   }
 
   .card_holder {
-    font-size: 14px;
-    color: white;
-    position: absolute;
     bottom: 10px;
     left: 10px;
-    margin: 0;
-    padding: 2px;
-    letter-spacing: 2px;
   }
 
   .expiry_date {
-    font-size: 14px;
-    color: white;
-    margin: 0;
-    padding: 2px;
-    position: absolute;
     bottom: 10px;
     right: 60px;
-    letter-spacing: 2px;
   }
 
   .cvc_card {
-    font-size: 12px;
-    color: white;
-    margin: 0;
-    padding: 2px;
-    position: absolute;
     bottom: 10%;
     right: 40px;
-    letter-spacing: 2px;
   }
 
   .form {
@@ -307,64 +258,11 @@ button {
     height: 100vh;
   }
 
-  .input_container {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    margin-bottom: 10px;
-    margin-right: 20px;
-  }
   label {
-    margin-bottom: 7px;
-    display: block;
     font-size: 14px;
-  }
-
-  input::placeholder {
-    color: var(--Dark-grayish-violet);
-    font-family: "Space Grotesk", sans-serif;
-  }
-
-  .cardNumber,
-  .cardholder {
-    margin-bottom: 5px;
-    padding: 10px;
-    outline: none;
-    border-radius: 10px;
-    border: 1px solid var(--Light-grayish-violet);
   }
 
   button {
-    background-color: var(--Very-dark-violet);
-    color: var(--White);
-    width: 100%;
-    padding: 10px;
-    border-radius: 10px;
     font-size: 14px;
-    cursor: pointer;
-    margin-top: 10px;
-    font-family: "Space Grotesk", sans-serif;
-  }
-
-  .Ex_Date_Group {
-    display: flex;
-    flex-wrap: nowrap;
-    justify-content: space-between;
-  }
-
-  .MM,
-  .YY,
-  .cvc {
-    margin-bottom: 5px;
-    padding: 10px;
-    outline: none;
-    border-radius: 10px;
-    border: 1px solid var(--Light-grayish-violet);
-    margin-right: 10px;
-    width: 20%;
-  }
-
-  .cvc {
-    width: 100%;
   }
 }
