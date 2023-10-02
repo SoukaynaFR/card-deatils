@@ -6,16 +6,16 @@
             <div class="overlay">
 
             <img src="../../assets/images/card-logo.svg" alt="card_logo" class="card_logo">
-            <p class="card_number">0000 0000 0000 0000</p>
-            <p class="card_holder">Jane Appleseed</p>
-            <p class="expiry_date">00/00</p>
+            <p class="card_number">{{ cardNumber | cardNumberFormat }}</p>
+            <p class="card_holder">{{ cardholder }}</p>
+            <p class="expiry_date">{{ MM }}/{{ YY }}</p>
                 </div>
         </div>
 
         <div class="card_back">
             <img src="../../assets/images/bg-card-back.png" alt="">
             <div class="overlay">
-                <p class="cvc_card">000</p>
+                <p class="cvc_card">{{cvc}}</p>
             </div>
         </div>
 

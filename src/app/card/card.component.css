@@ -183,3 +183,8 @@
     letter-spacing: 2px; 
 
   }
+
+  .errorMessage{
+    color: var(--Red);
+    font-size: 12px;
+  }
